@@ -11,12 +11,12 @@ namespace WebApi_Robotica.Controllers
     public class VariablesController : ApiController
     {
         // GET: api/Variables
-        public IEnumerable<Variables> Get()
+        public Variables Get()
         {
             var repo = new VariablesRepository();
             //List<Partido> partidos = repo.Retrieve();
-            List<Variables> vars = repo.Retrieve();
-            return vars;
+            Variables var = repo.Retrieve();
+            return var;
         }
 
         // GET: api/Variables/5
@@ -30,9 +30,11 @@ namespace WebApi_Robotica.Controllers
         {
         }
 
-        // PUT: api/Variables/5
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/Variables
+        public void Put(string tipoVar, [FromBody]int variable)
         {
+            var repo = new VariablesRepository();
+            repo.Update(variable, tipoVar);
         }
 
         // DELETE: api/Variables/5

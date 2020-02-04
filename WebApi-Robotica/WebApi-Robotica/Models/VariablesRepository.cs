@@ -16,7 +16,7 @@ namespace WebApi_Robotica.Models
             return con;
         }
 
-        internal List<Variables> Retrieve()
+        internal Variables Retrieve()
         {
             System.Globalization.CultureInfo culInfo = new System.Globalization.CultureInfo("es-ES");
             culInfo.NumberFormat.NumberDecimalSeparator = ".";
@@ -27,13 +27,13 @@ namespace WebApi_Robotica.Models
 
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from Maquinas;";
+            command.CommandText = "select * from Variables;";
 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
             Variables var = null;
-            List<Variables> vars = new List<Variables>();
+            //List<Variables> vars = new List<Variables>();
 
             while (res.Read())
             {
@@ -61,13 +61,55 @@ namespace WebApi_Robotica.Models
                     res.GetInt32(20),
                     res.GetInt32(21)
                     );
-                vars.Add(var);
             }
             con.Close();
 
-            return vars;
+            return var;
         }
 
+        internal void Update(int variable, string tipoVar)
+        {
+            System.Globalization.CultureInfo culInfo = new System.Globalization.CultureInfo("es-ES");
+            culInfo.NumberFormat.NumberDecimalSeparator = ".";
+            culInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+            culInfo.NumberFormat.PercentDecimalSeparator = ".";
+            culInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = culInfo;
 
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+
+            string nom = "";
+
+            switch (tipoVar)
+            {
+                case "G1FrecVar":
+                    nom = "G1FrecVar";
+                    break;
+
+                case "G1Tritur":
+                    nom = "G1Tritur";
+                    break;
+
+                case "G2FrecVar":
+                    nom = "G2FrecVar";
+                    break;
+
+                case "G3Gripper":
+                    nom = "G3Gripper";
+                    break;
+
+                default:
+                    break;
+            }
+
+            command.CommandText = "update Variables SET " + nom + " = " + variable + ";";
+            
+            Debug.WriteLine("comando " + command.CommandText);
+
+            con.Open();
+            command.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
