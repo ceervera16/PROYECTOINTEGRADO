@@ -54,7 +54,7 @@ export default class TablaGAv extends Component {
                         </View>
                     </View>
                     <View  style={styles.tabla}>
-                        <View>
+                        <View style>
                             <G1AlmGav valor={this.props.g7} gaveta="7"></G1AlmGav>
                         </View>
                         <View>
@@ -91,5 +91,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: "center",
         justifyContent: 'center'
-    }
+    },
+
 });

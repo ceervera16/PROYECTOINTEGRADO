@@ -9,25 +9,19 @@ export default class G1RecarTap extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            info: true
-
+            info: Boolean
         }
     }
-    recargaTapones = () =>{
-        
-    }
+    recargaTapones = (recar= Boolean) =>{
+        if (recar==true){
+            info= true;
+            return info;
+        }else{
+            info= false;
+            return info;
+        } 
 
-    // infoMaquina = () => {
-    //   fetch(this.DB_URL+'/usuaris?userName='+this.state.user+'&contrasenya='+this.state.password)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //       if (data.length>0) {
-    //         this.props.navigation.navigate('Home', {user: data[0]});
-    //       } else {
-    //         ToastAndroid.showWithGravity('Usuario o contraseña incorrectos', ToastAndroid.LONG, ToastAndroid.TOP);
-    //       }
-    //     });
-    // }
+    }
 
 
     render() {
