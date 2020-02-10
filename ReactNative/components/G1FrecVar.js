@@ -17,7 +17,7 @@ export default class App extends React.Component {
           .then((json) => {this.setState({productos: json})})
           .catch((error)=> Console.log(error))
         }
-      //Actualizar los datos
+      
       componentDidUpdate(){
         fetch("")
           .then((response)=> response.json())
@@ -77,17 +77,17 @@ const styles = StyleSheet.create({
     },
     componente: {
         flex: 1,
-        backgroundColor: 'black',
-        color: 'white',
+        backgroundColor: 'white',
+        color: 'black',
         
 
     },
     text: {
         fontSize: 30,
         textAlign: 'center',
-        color: 'white',
+        color: 'black',
         position:'absolute',
-        borderBottomColor:'white'
+        borderBottomColor:'black'
 
     },
     textInput: {
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         width: 100,
         margin: 3,
         fontSize: 15,
-        color: 'white',
+        color: 'black',
         flexDirection: 'column',
         position:'absolute',
         left:200,
