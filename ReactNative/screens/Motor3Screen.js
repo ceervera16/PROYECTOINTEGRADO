@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#1B4F72",
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   icon: {
     margin: 10,
