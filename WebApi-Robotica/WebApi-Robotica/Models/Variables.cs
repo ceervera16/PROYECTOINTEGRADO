@@ -26,7 +26,7 @@ namespace WebApi_Robotica.Models
             int G2BobFab,
             bool G2TempOk,
             bool G2TolUp,
-            bool G2TolDowm,
+            bool G2TolDown,
             bool G3Marcha,
             int G3Gripper,
             int G3AvisoCelda
@@ -50,7 +50,7 @@ namespace WebApi_Robotica.Models
             this.G2BobFab = G2BobFab;
             this.G2TempOk = G2TempOk;
             this.G2TolUp = G2TolUp;
-            this.G2TolDowm = G2TolDowm;
+            this.G2TolDown = G2TolDown;
             this.G3Marcha = G3Marcha;
             this.G3Gripper = G3Gripper;
             this.G3AvisoCelda = G3AvisoCelda;
@@ -74,7 +74,7 @@ namespace WebApi_Robotica.Models
         public int G2BobFab { get; }
         public bool G2TempOk { get; }
         public bool G2TolUp { get; }
-        public bool G2TolDowm { get; }
+        public bool G2TolDown { get; }
         public bool G3Marcha { get; }
         public int G3Gripper { get; set; }
         public int G3AvisoCelda { get; }
