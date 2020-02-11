@@ -9,7 +9,7 @@ export default class CompNum extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ backgroundColor: "rgba(16,110,242,1)" }}>
+        <View style={{ backgroundColor: "#1B4F72" }}>
           <Text style={styles.textT}>{this.props.nom}</Text>
         </View>
         <View style={{ backgroundColor: 'white', alignItems: 'center' }}>
@@ -24,14 +24,14 @@ const styles = StyleSheet.create({
   textT: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     margin: 3,
     marginLeft: 5,
     marginRight: 5,
   },
   container: {
     margin: 7,
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   text: {
     margin: 20,
     fontSize: 85,
-    color: 'rgba(16,110,242,1)',
+    color: '#1B4F72',
     marginTop: 3,
     marginBottom: 12
   },

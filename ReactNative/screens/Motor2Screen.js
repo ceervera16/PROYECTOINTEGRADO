@@ -19,7 +19,7 @@ export default class Motor2Screen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Image source={require('../images/logo1.png')} style={{ height: 55, width: 70, margin: 10 }} />
+          <Image source={require('../images/logo3.png')} style={{ height: 80, width: 80, margin: 5 }} />
           <TouchableHighlight style={styles.button} onPress={this.props.screenProps.onModLang}>
             <Icon style={styles.icon} name='translate' />
           </TouchableHighlight>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 10
   },
   header: {
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     borderRadius: 10,
     margin: 10,
     height: 60,

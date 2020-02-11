@@ -11,7 +11,7 @@ export default class GFrecVar extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ backgroundColor: "rgba(16,110,242,1)" }}>
+        <View style={{ backgroundColor: "#1B4F72" }}>
           <Text style={styles.text}>{this.props.nom}</Text>
         </View>
         <View style={styles.meter}>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     margin: 3,
     marginLeft: 5,
     marginRight: 5

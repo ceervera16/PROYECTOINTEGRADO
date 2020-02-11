@@ -37,7 +37,7 @@ export default class G1AlmGav extends React.Component {
   render() {
     return (
       <View style={[styles.container, { flex: 9 }]}>
-        <View style={{ backgroundColor: "rgba(16,110,242,1)" }}>
+        <View style={{ backgroundColor: "#1B4F72" }}>
           <Text style={styles.textT}>{this.props.english ? "Drawers" : "Gavetas"}</Text>
         </View>
         <View style={{ flex: 3, flexDirection: 'row' }}>
@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
   textT: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     margin: 3,
     marginLeft: 5,
     marginRight: 5
   },
   container: {
     margin: 7,
-    backgroundColor: "rgba(16,110,242,1)",
+    backgroundColor: "#1B4F72",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

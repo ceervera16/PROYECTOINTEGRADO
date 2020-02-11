@@ -20,7 +20,7 @@ export const TabNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeBackgroundColor: "rgba(16,110,242,1)",
+      activeBackgroundColor: "#1B4F72",
       shifting: true,
       style: {
         backgroundColor: '#f7f7f7',
@@ -29,7 +29,7 @@ export const TabNavigator = createBottomTabNavigator(
     },
     defaultNavigationOptions: ({ navigation, screenProps }) => ({
       tabBarLabel: ({ focused }) => (
-        <Text style={{ fontSize: focused ? 20 : 15, textAlign: 'center', color: focused ? 'white' : 'rgba(16,110,242,1)', marginBottom: 5, marginTop: -5 }}>
+        <Text style={{ fontSize: focused ? 20 : 15, textAlign: 'center', color: focused ? 'white' : '#1B4F72', marginBottom: 5, marginTop: -5 }}>
           {(screenProps.english ? "Group " : "Grupo ") + navigation.state.routeName.substring(1, 2)}
         </Text>
       ),
