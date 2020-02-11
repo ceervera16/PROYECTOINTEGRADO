@@ -1,66 +1,120 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
-import { ToastAndroid } from 'react-native';
-import { block, color } from 'react-native-reanimated';
+import React from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+} from 'react-native';
 
-export default class G1AlmGav extends Component {
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+export default class G1AlmGav extends React.Component {
+  colorGav(value) {
+    switch (value) {
+      case 0:
+        return "grey";
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            backgroundColor: "",
-        }
+      case 1:
+        return "red";
+
+      case 2:
+        return "blue";
+
+      case 3:
+        return "white";
     }
+  }
 
-    cambiarColor = () => {
-        switch (this.props.valor) {
-            case 0:
-                this.setState({ backgroundColor: "grey" });
-                break;
+  colorText(value) {
+    switch (value) {
+      case 3:
+        return "black";
 
-            case 1:
-                this.setState({ backgroundColor: "red" });
-                break;
-            case 2:
-                this.setState({ backgroundColor: "blue" });
-                break;
-            case 3:
-                this.setState({ backgroundColor: "black" });
-                break;
-        }
+      default:
+        return "white";
     }
+  }
 
-    componentDidMount() {
-        this.cambiarColor();
-    }
-
-
-    render() {
-        return (
-            <View>
-                <View style={{ backgroundColor: this.state.backgroundColor}}>
-                    <Text style={styles.components}>
-                        {this.props.gaveta}
-                    </Text>
-                </View>
-
-
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={[styles.container, { flex: 9 }]}>
+        <View style={{ backgroundColor: "rgba(16,110,242,1)" }}>
+          <Text style={styles.textT}>{this.props.english ? "Drawers" : "Gavetas"}</Text>
+        </View>
+        <View style={{ flex: 3, flexDirection: 'row' }}>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav1) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav1) }]}>1</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav2) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav2) }]}>2</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav3) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav3) }]}>3</Text>
+          </View>
+        </View>
+        <View style={{ flex: 3, flexDirection: 'row' }}>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav4) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav4) }]}>4</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav5) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav5) }]}>5</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav6) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav6) }]}>6</Text>
+          </View>
+        </View>
+        <View style={{ flex: 3, flexDirection: 'row' }}>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav7) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav7) }]}>7</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav8) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav8) }]}>8</Text>
+          </View>
+          <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav9) }]}>
+            <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav9) }]}>9</Text>
+          </View>
+        </View>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    
-    components: {
-        width: '100%',
-        fontSize: 25,
-        color: 'white',
-        margin: 5,
-        marginLeft:30,
-        marginRight: 30   
+  textT: {
+    fontSize: 20,
+    color: "white",
+    backgroundColor: "rgba(16,110,242,1)",
+    margin: 3,
+    marginLeft: 5,
+    marginRight: 5
+  },
+  container: {
+    margin: 7,
+    backgroundColor: "rgba(16,110,242,1)",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
 
-        
-    }
+    elevation: 24,
+  },
+  text: {
+    margin: 20,
+    fontSize: 25,
+    color: 'white',
+    marginTop: 3,
+    marginBottom: 3,
+    textAlign: 'center',
+  },
+  icon: {
+    margin: 20,
+    fontSize: 40,
+    color: "white",
+  },
+  section: {
+    flex: 1,
+    justifyContent: 'center'
+  }
 });
