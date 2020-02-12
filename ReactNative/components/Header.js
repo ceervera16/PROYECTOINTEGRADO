@@ -41,13 +41,18 @@ export default class Header extends React.Component {
 
         <Overlay isVisible={this.state.visible} onBackdropPress={this.toggleOverlay}>
           <Text style={styles.textoTitle}>¡Bienvenido a nuestra app!</Text>
-          <Text style={styles.textoBody}>Esta aplicación está diseñada para mostrar en tiempo real los parámetros de cada grupo de máquinas. Pulsa cada componente y te mostrará una pequeña descripción de su funcionamiento.</Text>
-          <Text style={styles.textoBottom}>Desarollada por: {'\n'} Guillermo Martínez Lozano {'\n'} guillermo_m_96@hotmail.com {'\n'}
-                                                            {'\n'} Luis Contreras García {'\n'} luiscgarcia1999@gmail.com {'\n'}
-                                                            {'\n'} Adrián Cervera San Sebastián {'\n'} ceervera16@gmail.com {'\n'}
-                                                            {'\n'} Graciela Zamora Valdés  {'\n'} graciiela10@hotmail.com{'\n'}
-                                                            {'\n'} Jose Antonio Delgado {'\n'} 
-           </Text>
+          <Text style={styles.textoBody}>
+            Esta aplicación está diseñada para mostrar en tiempo real los parámetros de cada grupo de máquinas.
+            Pulsa cada componente y te mostrará una pequeña descripción de su funcionamiento.
+          </Text>
+          <Text style={styles.textoBottom}>
+            Desarollada por:
+            {'\n'} Guillermo Martínez Lozano {'\n'} guillermo_m_96@hotmail.com {'\n'}
+            {'\n'} Luis Alberto Contreras García {'\n'} luiscgarcia1999@gmail.com {'\n'}
+            {'\n'} Adrián Cervera San Sebastián {'\n'} ceervera16@gmail.com {'\n'}
+            {'\n'} Graciela Zamora Valdés {'\n'} graciiela10@hotmail.com {'\n'}
+            {'\n'} Jose Antonio Delgado Muñoz {'\n'} jose5598vlc@gmail.com {'\n'}
+          </Text>
         </Overlay>
       </View>
     )
@@ -76,18 +81,18 @@ const styles = StyleSheet.create({
   textoTitle: {
     padding: 10,
     color: "#1B4F72",
-    fontSize: 25,
+    fontSize: 21,
     textAlign: "center",
     fontWeight: '800'
   },
   textoBody: {
     padding: 15,
     color: "#1B4F72",
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center"
   },
   textoBottom: {
-    padding: 15,
+    padding: 12,
     color: "#1B4F72",
     fontSize: 15,
     textAlign: "center",
