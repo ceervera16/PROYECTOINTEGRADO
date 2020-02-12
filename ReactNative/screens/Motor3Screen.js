@@ -11,17 +11,13 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import GMarcha from '../components/GMarcha';
 import CompNum from '../components/CompNum';
 import CompOnOff from '../components/CompOnOff';
+import Header from '../components/Header';
 
 export default class Motor3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Image source={require('../images/logo3.png')} style={{ height: 80, width: 80, margin: 5 }} />
-          <TouchableHighlight style={styles.button} onPress={this.props.screenProps.onModLang}>
-            <Icon style={styles.icon} name='translate' />
-          </TouchableHighlight>
-        </View>
+        <Header onModLang={this.props.screenProps.onModLang}/>
         <View style={{ margin: 7 }}>
           <GMarcha
             GMarcha={this.props.screenProps.variables.G3Marcha}
