@@ -69,7 +69,7 @@ export default class App extends React.Component {
 
   getDatos = async () => {
     try {
-      const response = await fetch(`http://10.0.2.2:44325/api/Variables`);
+      const response = await fetch(`http://10.3.129.150/api/Variables`);
       const json = response.ok ? await response.json() : console.log("Error");
       this.setState({ datos: json });
       console.log(this.state.datos);

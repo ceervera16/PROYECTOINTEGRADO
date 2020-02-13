@@ -39,6 +39,9 @@ export default class G1AlmGav extends React.Component {
 
       case 3:
         return "white";
+
+      default: 
+       return "#D4C817";
     }
   }
 
