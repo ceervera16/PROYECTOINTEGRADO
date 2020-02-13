@@ -28,6 +28,7 @@ export default class Motor1Screen extends React.Component {
                   GFrecVar={this.props.screenProps.variables.G1FrecVar}
                   nom={this.props.screenProps.english ? "Speed tape drive" : "Vel. variador cinta"}
                   max={60}
+                  textoPopover={this.props.screenProps.english ? "Speed ​​of the tape drive" : "Velocidad del variador de la cinta"}
                 />
               </View>
               <View style={{ flex: 0.5 }}>
@@ -38,6 +39,7 @@ export default class Motor1Screen extends React.Component {
                   text0={this.props.screenProps.english ? "Stopped" : "Parada"}
                   icon1="check"
                   icon0="window-close"
+                  textoPopover={this.props.screenProps.english ? "Crusher running or stopped" : "Trituradora en marcha o parada"}
                 />
               </View>
             </View>
@@ -50,6 +52,7 @@ export default class Motor1Screen extends React.Component {
                   text0={this.props.screenProps.english ? "Stopped" : "Parada"}
                   icon1="check"
                   icon0="window-close"
+                  textoPopover={this.props.screenProps.english ? "Refill of caps in operation or stopped" : "Recarga de tapones en funcionamiento o parada"}
                 />
               </View>
               <View style={{ flex: 0.5 }}>

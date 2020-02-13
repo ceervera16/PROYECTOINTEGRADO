@@ -3,11 +3,29 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Entypo';
 
+import Popover from 'react-native-popover-view';
+
 export default class CompOnOff extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false,
+    }
+  }
+
+  openPopover = () => {
+    this.setState({ isVisible: true });
+  }
+
+  closePopover = () => {
+    this.setState({ isVisible: false });
+  }
+
   colorComp() {
     if (this.props.detectorUp && this.props.detectorDown)
       return "#F44138";
@@ -53,15 +71,26 @@ export default class CompOnOff extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{ backgroundColor: "#1B4F72" }}>
-          <Text style={styles.textT}>{this.props.english ? "Hopper" : "Tolva"}</Text>
+      <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.touchable = ref} >
+        <View style={styles.container}>
+          <View style={{ backgroundColor: "#1B4F72" }}>
+            <Text style={styles.textT}>{this.props.english ? "Hopper" : "Tolva"}</Text>
+          </View>
+          <View style={{ backgroundColor: this.colorComp(), alignItems: 'center' }}>
+            <Icon style={styles.icon} name={this.iconComp()} />
+            <Text style={styles.text}>{this.textComp()}</Text>
+          </View>
+
+          <Popover
+            isVisible={this.state.isVisible}
+            fromView={this.touchable}
+            onRequestClose={this.closePopover}
+          >
+            <Text style={{ margin: 15 }}>{this.props.english ? "Hopper material level" : "Nivel de material de la tolva"}</Text>
+          </Popover>
+
         </View>
-        <View style={{ backgroundColor: this.colorComp(), alignItems: 'center' }}>
-          <Icon style={styles.icon} name={this.iconComp()} />
-          <Text style={styles.text}>{this.textComp()}</Text>
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     )
   }
 }

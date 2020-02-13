@@ -32,10 +32,10 @@ export default class G1AlmGav extends React.Component {
         return "grey";
 
       case 1:
-        return "red";
+        return "#F44138";
 
       case 2:
-        return "blue";
+        return "#128FE5";
 
       case 3:
         return "white";
@@ -54,11 +54,10 @@ export default class G1AlmGav extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.container = ref} >
+      <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.touchable = ref} >
         <View style={[styles.container, { flex: 9 }]} >
-          <View style={{ backgroundColor: "#1B4F72", justifyContent: 'space-between', flexDirection: 'row' }}>
+          <View style={{ backgroundColor: "#1B4F72" }}>
             <Text style={styles.textT}>{this.props.english ? "Drawers" : "Gavetas"}</Text>
-            <Icon style={styles.icon} name="help-circle" onPress={this.openPopover} ref={ref => this.icon = ref} />
           </View>
           <View style={{ flex: 3, flexDirection: 'row' }}>
             <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav1) }]}>
@@ -96,14 +95,18 @@ export default class G1AlmGav extends React.Component {
 
           <Popover
             isVisible={this.state.isVisible}
-            fromView={this.container}
+            fromView={this.touchable}
             onRequestClose={this.closePopover}
           >
-            <Text style={{ margin: 15 }}>{this.props.textoPopover}</Text>
+            <Text style={{ margin: 15 }}>
+              {this.props.english
+                ? "Warehouse drawer information:\n  · Empty in gray\n  · Filled with red caps in red\n  · Filled with blue caps in blue\n  · Fill with shredded material in white"
+                : "Información de las gavetas del almacén:\n  · Vacía en color gris\n  · Llena con tapones rojos en rojo\n  · Llena con tapones azules en azul\n  · Llena con triturado en blanco"
+              }
+            </Text>
           </Popover>
+
         </View>
-
-
       </TouchableWithoutFeedback>
     )
   }

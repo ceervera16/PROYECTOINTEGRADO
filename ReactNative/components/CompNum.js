@@ -3,19 +3,48 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableWithoutFeedback
 } from 'react-native';
 
+import Popover from 'react-native-popover-view';
+
 export default class CompNum extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false,
+    }
+  }
+
+  openPopover = () => {
+    this.setState({ isVisible: true });
+  }
+
+  closePopover = () => {
+    this.setState({ isVisible: false });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{ backgroundColor: "#1B4F72" }}>
-          <Text style={styles.textT}>{this.props.nom}</Text>
+      <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.touchable = ref} >
+        <View style={styles.container}>
+          <View style={{ backgroundColor: "#1B4F72" }}>
+            <Text style={styles.textT}>{this.props.nom}</Text>
+          </View>
+          <View style={{ backgroundColor: 'white', alignItems: 'center' }}>
+            <Text style={styles.text}>{this.props.value}</Text>
+          </View>
+
+          <Popover
+            isVisible={this.state.isVisible}
+            fromView={this.touchable}
+            onRequestClose={this.closePopover}
+          >
+            <Text style={{ margin: 15 }}>{this.props.textoPopover}</Text>
+          </Popover>
+
         </View>
-        <View style={{ backgroundColor: 'white', alignItems: 'center' }}>
-          <Text style={styles.text}>{this.props.value}</Text>
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     )
   }
 }

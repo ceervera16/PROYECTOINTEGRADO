@@ -28,6 +28,7 @@ export default class Motor3Screen extends React.Component {
               <CompNum
                 value={this.props.screenProps.variables.G3Gripper}
                 nom="Gripper"
+                textoPopover={this.props.screenProps.english ? "Robot mounted tool" : "Herramienta montada en el robot"}
               />
             </View>
             <View style={{ flex: 0.5 }}>
@@ -38,6 +39,7 @@ export default class Motor3Screen extends React.Component {
                 text0={this.props.screenProps.english ? "Closed" : "Cerrada"}
                 icon1="lock-open"
                 icon0="lock"
+                textoPopover={this.props.screenProps.english ? "Robot cell status warning" : "Aviso del estado de la celda del robot"}
               />
             </View>
           </View>

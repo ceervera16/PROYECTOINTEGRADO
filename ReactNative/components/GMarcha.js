@@ -3,11 +3,29 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import Popover from 'react-native-popover-view';
+
 export default class GMarcha extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false,
+    }
+  }
+
+  openPopover = () => {
+    this.setState({ isVisible: true });
+  }
+
+  closePopover = () => {
+    this.setState({ isVisible: false });
+  }
+
   colorComp() {
     return this.props.GMarcha ? "#7BE756" : "#F44138"
   }
@@ -22,10 +40,26 @@ export default class GMarcha extends React.Component {
 
   render() {
     return (
-      <View style={[styles.container, { backgroundColor: this.colorComp() }]}>
-        <Icon style={styles.icon} name={this.iconComp()} />
-        <Text style={styles.text}>{this.textComp()}</Text>
-      </View>
+      <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.touchable = ref} >
+        <View style={[styles.container, { backgroundColor: this.colorComp() }]}>
+          <Icon style={styles.icon} name={this.iconComp()} />
+          <Text style={styles.text}>{this.textComp()}</Text>
+
+          <Popover
+            isVisible={this.state.isVisible}
+            fromView={this.touchable}
+            onRequestClose={this.closePopover}
+          >
+            <Text style={{ margin: 15 }}>
+              {this.props.english
+                ? "Group status on screen: in operation or stopped. It also shows its status in the navigator below"
+                : "Estado del grupo en pantalla: en funcionamiento o parado. También se muestra su estado en el navegador de abajo"
+              }
+            </Text>
+          </Popover>
+
+        </View>
+      </TouchableWithoutFeedback>
     )
   }
 }

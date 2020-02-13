@@ -31,12 +31,14 @@ export default class Motor2Screen extends React.Component {
                 GFrecVar={this.props.screenProps.variables.G2FrecVar}
                 nom={this.props.screenProps.english ? "Extr. motor speed" : "Vel. motor extr."}
                 max={60}
+                textoPopover={this.props.screenProps.english ? "Extrusion motor speed" : "Velocidad del motor de extrusión"}
               />
             </View>
             <View style={{ flex: 0.5 }}>
               <CompNum
                 value={this.props.screenProps.variables.G2BobFab}
                 nom={this.props.screenProps.english ? "Coils" : "Bobinas"}
+                textoPopover={this.props.screenProps.english ? "Number of coils manufactured" : "Cantidad de bobinas fabricadas"}
               />
             </View>
           </View>
@@ -49,6 +51,7 @@ export default class Motor2Screen extends React.Component {
                 text0={this.props.screenProps.english ? "Under" : "Por debajo"}
                 icon1="thermometer-plus"
                 icon0="thermometer-alert"
+                textoPopover={this.props.screenProps.english ? "Optimal working temperature" : "Temperatura de trabajo óptima"}
               />
             </View>
             <View style={{ flex: 0.5 }}>
