@@ -43,22 +43,24 @@ export default class Header extends React.Component {
         <Overlay isVisible={this.state.visible} onBackdropPress={this.toggleOverlay} height="85%">
           <View>
             <ScrollView>
-              <Text style={styles.textoTitle}>¡Bienvenido a nuestra app!</Text>
+              <Text style={styles.textoTitle}>{this.props.english ? "Welcome to our app," : "¡Bienvenido/a a nuestra app,"} CapBot Monitor!</Text>
               <Text style={styles.textoBody}>
-                Esta aplicación está diseñada para mostrar, en tiempo real, los parámetros de cada grupo de máquinas de un robot de reciclaje de tapones de forma visual.
-                Pulsa cada componente y te mostrará una pequeña descripción de su funcionamiento.
+                {this.props.english
+                  ? "This application is designed to show, in real time, the parameters of each group of machines of a cap recycling robot visually. Press each component and it will show you a small description of its behaviour."
+                  : "Esta aplicación está diseñada para mostrar, en tiempo real, los parámetros de cada grupo de máquinas de un robot de reciclaje de tapones de forma visual. Pulsa cada componente y te mostrará una pequeña descripción de su funcionamiento."
+                }
               </Text>
               <Text style={styles.textoBottom}>
-                Desarollada por:
+                Developers:
                 {'\n'} Guillermo Martínez Lozano {'\n'} guillermo_m_96@hotmail.com {'\n'}
                 {'\n'} Luis Alberto Contreras García {'\n'} luiscgarcia1999@gmail.com {'\n'}
                 {'\n'} Adrián Cervera San Sebastián {'\n'} ceervera16@gmail.com {'\n'}
                 {'\n'} Graciela Zamora Valdés {'\n'} graciiela10@hotmail.com {'\n'}
-                {'\n'} Joan Banyuls Sánchez {'\n'} jobanyuls@gmail.com {'\n'} 
+                {'\n'} Joan Banyuls Sánchez {'\n'} jobanyuls@gmail.com {'\n'}
                 {'\n'} Jose Antonio Delgado Muñoz {'\n'} jose5598vlc@gmail.com {'\n'}
               </Text>
               <Text style={styles.textoIcon}>
-                {'\n'} Iconos diseñados por "xnimrodx" from "https://www.flaticon.es/".
+                {'\n'} App icon by "xnimrodx" from "https://www.flaticon.es/".
               </Text>
             </ScrollView>
           </View>

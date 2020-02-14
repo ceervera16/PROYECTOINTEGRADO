@@ -17,7 +17,7 @@ export default class Motor3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header onModLang={this.props.screenProps.onModLang}/>
+        <Header onModLang={this.props.screenProps.onModLang} english={this.props.screenProps.english}/>
         <View style={{ margin: 7 }}>
           <GMarcha
             GMarcha={this.props.screenProps.variables.G3Marcha}
