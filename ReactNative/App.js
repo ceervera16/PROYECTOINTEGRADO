@@ -29,14 +29,14 @@ export const TabNavigator = createBottomTabNavigator(
     },
     defaultNavigationOptions: ({ navigation, screenProps }) => ({
       tabBarLabel: ({ focused }) => (
-        <Text style={{ fontSize: focused ? 20 : 15, textAlign: 'center', color: focused ? 'white' : '#1B4F72', marginBottom: 5, marginTop: -5 }}>
+        <Text style={{ fontSize: focused ? 23 : 15, textAlign: 'center', color: focused ? 'white' : '#1B4F72', marginBottom: 5, marginTop: -5 }}>
           {(screenProps.english ? "Group " : "Grupo ") + navigation.state.routeName.substring(1, 2)}
         </Text>
       ),
       tabBarIcon: ({ focused }) => (
         <Icon
           name="engine"
-          size={focused ? 35 : 30}
+          size={focused ? 38 : 30}
           color={
             navigation.state.routeName.substring(1, 2) == 1
               ? (screenProps.variables.G1Marcha ? "#7BE756" : "#F44138")

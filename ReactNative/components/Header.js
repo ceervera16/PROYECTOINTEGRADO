@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#1B4F72",
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   icon: {
     margin: 10,
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
   logo: {
     height: 70,
     width: 70,
-    marginLeft: 20,
+    margin: 12,
+    marginHorizontal: 16
   }
 });

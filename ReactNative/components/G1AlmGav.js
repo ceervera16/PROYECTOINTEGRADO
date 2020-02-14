@@ -62,6 +62,7 @@ export default class G1AlmGav extends React.Component {
           <View style={{ backgroundColor: "#1B4F72" }}>
             <Text style={styles.textT}>{this.props.english ? "Drawers" : "Gavetas"}</Text>
           </View>
+          <View style={{ margin: 2, backgroundColor: 'white', flex: 9 }}>
           <View style={{ flex: 3, flexDirection: 'row' }}>
             <View style={[styles.section, { backgroundColor: this.colorGav(this.props.G1AlmGav1) }]}>
               <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav1) }]}>1</Text>
@@ -95,6 +96,7 @@ export default class G1AlmGav extends React.Component {
               <Text style={[styles.text, { color: this.colorText(this.props.G1AlmGav9) }]}>9</Text>
             </View>
           </View>
+          </View>
 
           <Popover
             isVisible={this.state.isVisible}
@@ -103,8 +105,8 @@ export default class G1AlmGav extends React.Component {
           >
             <Text style={{ margin: 15 }}>
               {this.props.english
-                ? "Warehouse drawer information:\n  · Empty in gray\n  · Filled with red caps in red\n  · Filled with blue caps in blue\n  · Fill with shredded material in white"
-                : "Información de las gavetas del almacén:\n  · Vacía en color gris\n  · Llena con tapones rojos en rojo\n  · Llena con tapones azules en azul\n  · Llena con triturado en blanco"
+                ? "Warehouse drawer information:\n  · Empty in gray\n  · Filled with red caps in red\n  · Filled with blue caps in blue\n  · Fill with shredded material in white\n  · Wrong value in yellow"
+                : "Información de las gavetas del almacén:\n  · Vacía en color gris\n  · Llena con tapones rojos en rojo\n  · Llena con tapones azules en azul\n  · Llena con triturado en blanco\n  · Valor incorrecto en amarillo"
               }
             </Text>
           </Popover>
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
   },
   container: {
     margin: 7,
-    backgroundColor: "#1B4F72",
+    backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -145,13 +147,9 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     textAlign: 'center',
   },
-  icon: {
-    margin: 5,
-    fontSize: 20,
-    color: "white",
-  },
   section: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: 2,
   }
 });
