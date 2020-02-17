@@ -40,7 +40,7 @@ export default class Header extends React.Component {
           </View>
         </View>
 
-        <Overlay isVisible={this.state.visible} onBackdropPress={this.toggleOverlay} height="85%">
+        <Overlay isVisible={this.state.visible} onBackdropPress={this.toggleOverlay} height="70%">
           <View>
             <ScrollView>
               <Text style={styles.textoTitle}>{this.props.english ? "Welcome to our app," : "¡Bienvenido/a a nuestra app,"} CapBot Monitor!</Text>

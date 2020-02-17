@@ -27,7 +27,7 @@ export default class CompOnOff extends React.Component {
   }
 
   colorComp() {
-    return this.props.value ? "#7BE756" : "#F44138"
+    return this.props.value ? "#39D009" : "#F44138"
   }
 
   iconComp() {
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
   },
   container: {
     margin: 7,
+    height: 150,
     backgroundColor: "#1B4F72",
     shadowColor: "#000",
     shadowOffset: {
@@ -87,14 +88,13 @@ const styles = StyleSheet.create({
     elevation: 24,
   },
   text: {
-    margin: 20,
+    margin: 13,
     fontSize: 25,
     color: 'white',
     marginTop: 3,
-    marginBottom: 12
   },
   icon: {
-    margin: 20,
+    margin: 13,
     fontSize: 40,
     color: "white",
   },

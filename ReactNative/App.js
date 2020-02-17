@@ -1,18 +1,18 @@
-import React, { createContext } from 'react';
-import { Text } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import 'react-native-gesture-handler';
 
 import Motor1Screen from './screens/Motor1Screen';
 import Motor2Screen from './screens/Motor2Screen';
 import Motor3Screen from './screens/Motor3Screen';
+import Header from './components/Header';
 
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-export const TabNavigator = createBottomTabNavigator(
+const TabNavigator = createMaterialTopTabNavigator(
   {
     "G1": Motor1Screen,
     "G2": Motor2Screen,
@@ -20,45 +20,55 @@ export const TabNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeBackgroundColor: "#1B4F72",
-      shifting: true,
       style: {
         backgroundColor: '#f7f7f7',
-        height: 70,
+        height: 56
       },
+      indicatorStyle: {
+        height: '100%',
+        backgroundColor: '#1B4F72'
+      }
     },
+    tabBarPosition: 'bottom',
     defaultNavigationOptions: ({ navigation, screenProps }) => ({
       tabBarLabel: ({ focused }) => (
-        <Text style={{ fontSize: focused ? 23 : 15, textAlign: 'center', color: focused ? 'white' : '#1B4F72', marginBottom: 5, marginTop: -5 }}>
-          {(screenProps.english ? "Group " : "Grupo ") + navigation.state.routeName.substring(1, 2)}
-        </Text>
-      ),
-      tabBarIcon: ({ focused }) => (
-        <Icon
-          name="engine"
-          size={focused ? 38 : 30}
-          color={
-            navigation.state.routeName.substring(1, 2) == 1
-              ? (screenProps.variables.G1Marcha ? "#7BE756" : "#F44138")
-              : navigation.state.routeName.substring(1, 2) == 2
-                ? (screenProps.variables.G2Marcha ? "#7BE756" : "#F44138")
-                : (screenProps.variables.G3Marcha ? "#7BE756" : "#F44138")
-          }
-        />
+        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: focused ? 0 : 8 }}>
+          <View style={{ position: 'absolute' }}>
+            <Icon
+              name="engine"
+              size={focused ? 32 : 53}
+              color={screenProps.variables[`G${navigation.state.routeName.substring(1, 2)}Marcha`] ? "#39D009" : "#F44138"}
+            />
+          </View>
+          <View style={{ position: 'absolute' }}>
+            <Text style={{ fontSize: focused ? 13 : 17, color: 'white', marginTop: focused ? 43 : 6, fontWeight: focused ? 'normal' : 'bold' }}>
+              {focused ? (screenProps.english ? 'GROUP ' : 'GRUPO ') : ''}{navigation.state.routeName.substring(1, 2)}
+            </Text>
+          </View>
+        </View>
       ),
     }),
   },
 );
 
-const AppContainer = createAppContainer(TabNavigator);
+const StackNavigator = createStackNavigator(
+  {
+    screen: {
+      screen: TabNavigator,
+      navigationOptions: ({ screenProps }) => ({
+        header: () => <Header onModLang={screenProps.onModLang} english={screenProps.english} />,
+      }),
+    },
+  },
+);
 
-export const VariablesContext = createContext(null)
+const AppContainer = createAppContainer(StackNavigator);
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      datos: [],
+      datos: {},
       english: false,
     }
   }
@@ -70,6 +80,7 @@ export default class App extends React.Component {
   getDatos = async () => {
     try {
       const response = await fetch(`http://10.3.129.150/api/Variables`);
+      //const response = await fetch(`http://10.0.2.2:44325/api/Variables`);
       const json = response.ok ? await response.json() : console.log("Error");
       this.setState({ datos: json });
       console.log(this.state.datos);

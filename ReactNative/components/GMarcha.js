@@ -27,7 +27,7 @@ export default class GMarcha extends React.Component {
   }
 
   colorComp() {
-    return this.props.GMarcha ? "#7BE756" : "#F44138"
+    return this.props.GMarcha ? "#39D009" : "#F44138"
   }
 
   iconComp() {
@@ -43,7 +43,7 @@ export default class GMarcha extends React.Component {
       <TouchableWithoutFeedback onPress={this.openPopover} ref={ref => this.touchable = ref} >
         <View style={[styles.container, { backgroundColor: this.colorComp() }]}>
           <Icon style={styles.icon} name={this.iconComp()} />
-          <Text style={styles.text}>{this.textComp()}</Text>
+          <Text style={styles.text}>{this.props.english ? "Group" : "Grupo"} {this.props.num} - {this.textComp()}</Text>
 
           <Popover
             isVisible={this.state.isVisible}

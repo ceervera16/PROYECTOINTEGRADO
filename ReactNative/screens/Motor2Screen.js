@@ -2,28 +2,23 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  TouchableHighlight,
-  Image,
 } from 'react-native';
-
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import GMarcha from '../components/GMarcha';
 import GFrecVar from '../components/GFrecVar';
 import CompNum from '../components/CompNum';
 import CompOnOff from '../components/CompOnOff';
-import G2Tol from '../components/G2Tol'
-import Header from '../components/Header';
+import G2Tol from '../components/G2Tol';
 
 export default class Motor2Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header onModLang={this.props.screenProps.onModLang} english={this.props.screenProps.english}/>
         <View style={{ margin: 7 }}>
           <GMarcha
             GMarcha={this.props.screenProps.variables.G2Marcha}
             english={this.props.screenProps.english}
+            num={2}
           />
           <View style={{ flexDirection: 'row' }}>
             <View style={{ flex: 0.5 }}>
@@ -73,23 +68,4 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     flex: 10
   },
-  header: {
-    backgroundColor: "#1B4F72",
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-
-  },
-  icon: {
-    margin: 10,
-    fontSize: 40,
-    color: "white",
-  },
-  button: {
-    backgroundColor: 'black',
-    borderRadius: 10,
-    margin: 10,
-    height: 60,
-    width: 60
-  }
 });

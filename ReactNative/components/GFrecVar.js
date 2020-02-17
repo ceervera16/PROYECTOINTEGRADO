@@ -35,8 +35,8 @@ export default class GFrecVar extends React.Component {
           </View>
           <View style={styles.meter}>
             <RNSpeedometer
-              value={this.props.GFrecVar}
-              size={100}
+              value={this.props.GFrecVar != null ? this.props.GFrecVar : 0}
+              size={130}
               maxValue={this.props.max}
               labels={[
                 {
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   },
   container: {
     margin: 7,
+    height: 150,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
@@ -104,9 +105,8 @@ const styles = StyleSheet.create({
     elevation: 24,
   },
   meter: {
-    margin: 20,
-    marginBottom: 50,
-    justifyContent: 'center'
+    margin: 7,
+    justifyContent: 'center',
   },
   num: {
     fontSize: 40

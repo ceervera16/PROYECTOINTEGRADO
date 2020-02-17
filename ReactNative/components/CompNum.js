@@ -32,7 +32,7 @@ export default class CompNum extends React.Component {
             <Text style={styles.textT}>{this.props.nom}</Text>
           </View>
           <View style={{ backgroundColor: 'white', alignItems: 'center' }}>
-            <Text style={styles.text}>{this.props.value}</Text>
+            <Text style={styles.text}>{this.props.value != null ? this.props.value : 0}</Text>
           </View>
 
           <Popover
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   },
   container: {
     margin: 7,
-    backgroundColor: "#1B4F72",
+    height: 150,
+    backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -72,15 +73,7 @@ const styles = StyleSheet.create({
     elevation: 24,
   },
   text: {
-    margin: 20,
-    fontSize: 85,
+    fontSize: 86,
     color: '#1B4F72',
-    marginTop: 3,
-    marginBottom: 12
-  },
-  icon: {
-    margin: 20,
-    fontSize: 40,
-    color: "white",
   },
 });
