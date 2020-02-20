@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 
 import GMarcha from '../components/GMarcha';
 import GFrecVar from '../components/GFrecVar';
@@ -14,7 +14,7 @@ import G1Almgav from '../components/G1AlmGav';
 export default class Motor1Screen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={{margin: 7}}>
           <GMarcha
             GMarcha={this.props.screenProps.variables.G1Marcha}
@@ -94,7 +94,7 @@ export default class Motor1Screen extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

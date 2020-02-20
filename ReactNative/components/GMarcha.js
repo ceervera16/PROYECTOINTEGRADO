@@ -66,8 +66,9 @@ export default class GMarcha extends React.Component {
         ref={ref => (this.touchable = ref)}>
         <View style={[styles.container, {backgroundColor: this.colorComp()}]}>
           <Icon style={styles.icon} name={this.iconComp()} />
-          <Text style={styles.text}>
-            {this.props.english ? 'Group' : 'Grupo'} {this.props.num} -{this.textComp()}
+          <Text style={styles.text} numberOfLines={1}>
+            {this.props.english ? 'Group' : 'Grupo'} {this.props.num} -{' '}
+            {this.textComp()}
           </Text>
           {/**
            * Por defecto no es visible hasta que se cambia su estado.
@@ -92,28 +93,29 @@ export default class GMarcha extends React.Component {
 
 const styles = StyleSheet.create({
   text: {
-    margin: 10,
-    marginLeft: 20,
     fontSize: 30,
     color: 'white',
   },
   icon: {
-    margin: 10,
-    marginLeft: 20,
     fontSize: 40,
+    margin: 10,
     color: 'white',
   },
   container: {
     flexDirection: 'row',
+    height: 60,
     margin: 7,
+    alignItems: 'center',
+    flexGrow: 1,
+    justifyContent: 'flex-start',
     backgroundColor: '#1B4F72',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
 });

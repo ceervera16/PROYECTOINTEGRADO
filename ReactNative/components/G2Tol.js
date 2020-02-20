@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/Entypo';
 import Popover from 'react-native-popover-view';
 
 /**
- * Componente que muestra el estado de la tolva utilizando los dos 
+ * Componente que muestra el estado de la tolva utilizando los dos
  * detectores que tiene (uno arriba y otro abajo).
- * 
+ *
  * Recibe las siguientes propiedades:
  *   - english (bool) Determina en que idioma se va a mostrar
  *   - detectorUp (bool) Valor del detector de arriba, en la bd G2TolUp
@@ -38,13 +38,13 @@ export default class CompOnOff extends React.Component {
   colorComp() {
     switch (true) {
       case this.props.detectorUp && this.props.detectorDown: //Si están los dos detectores encendidos
-        return '#F44138';                                    //mostrará que está lleno
+        return '#F44138'; //mostrará que está lleno
       case !this.props.detectorUp && this.props.detectorDown: //Si el de arriba está apagado y el de abajo encendido
-        return '#39D009';                                     //mostrará que tiene un nivel medio
+        return '#39D009'; //mostrará que tiene un nivel medio
       case !this.props.detectorUp && !this.props.detectorDown: //Si están los dos apagados
-        return 'grey';                                         //mostrará que está vacío
+        return 'grey'; //mostrará que está vacío
       case this.props.detectorUp && !this.props.detectorDown: //Si está el de arriba encendido y el de abajo apagado
-        return '#FAD91F';                                     //dará error
+        return '#FAD91F'; //dará error
     }
   }
 
@@ -89,14 +89,18 @@ export default class CompOnOff extends React.Component {
       <TouchableWithoutFeedback
         onPress={this.togglePopover}
         ref={ref => (this.touchable = ref)}>
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: this.colorComp()}]}>
           <View style={{backgroundColor: '#1B4F72'}}>
-            <Text style={styles.textT}>
+            <Text style={styles.textT} numberOfLines={1}>
               {this.props.english ? 'Hopper' : 'Tolva'}
             </Text>
           </View>
           <View
-            style={{backgroundColor: this.colorComp(), alignItems: 'center'}}>
+            style={{
+              flexGrow: 1,
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+            }}>
             <Icon style={styles.icon} name={this.iconComp()} />
             <Text style={styles.text}>{this.textComp()}</Text>
           </View>
@@ -137,11 +141,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
   text: {
     margin: 13,

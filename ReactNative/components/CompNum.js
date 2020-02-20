@@ -40,9 +40,17 @@ export default class CompNum extends React.Component {
         ref={ref => (this.touchable = ref)}>
         <View style={styles.container}>
           <View style={{backgroundColor: '#1B4F72'}}>
-            <Text style={styles.textT}>{this.props.nom}</Text>
+            <Text style={styles.textT} numberOfLines={1}>
+              {this.props.nom}
+            </Text>
           </View>
-          <View style={{backgroundColor: 'white', alignItems: 'center'}}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              alignItems: 'center',
+              flexGrow: 1,
+              justifyContent: 'space-evenly',
+            }}>
             <Text style={styles.text}>
               {this.props.value != null ? this.props.value : 0}
             </Text>
@@ -80,11 +88,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
   text: {
     fontSize: 86,

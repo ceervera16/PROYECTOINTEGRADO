@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 
 import GMarcha from '../components/GMarcha';
 import GFrecVar from '../components/GFrecVar';
@@ -15,7 +15,7 @@ import G2Tol from '../components/G2Tol';
 export default class Motor2Screen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={{margin: 7}}>
           <GMarcha
             GMarcha={this.props.screenProps.variables.G2Marcha}
@@ -80,7 +80,7 @@ export default class Motor2Screen extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

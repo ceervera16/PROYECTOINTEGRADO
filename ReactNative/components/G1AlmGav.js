@@ -30,7 +30,7 @@ export default class G1AlmGav extends React.Component {
 
   /**
    * Devuelve un color dependiendo del valor
-   * @param {num} value 
+   * @param {num} value
    */
   colorGav(value) {
     switch (value) {
@@ -58,7 +58,7 @@ export default class G1AlmGav extends React.Component {
         ref={ref => (this.touchable = ref)}>
         <View style={[styles.container, {flex: 9}]}>
           <View style={{backgroundColor: '#1B4F72'}}>
-            <Text style={styles.textT}>
+            <Text style={styles.textT} numberOfLines={1}>
               {this.props.english ? 'Drawers' : 'Gavetas'}
             </Text>
           </View>
@@ -170,14 +170,13 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
   text: {
-    margin: 20,
     fontSize: 25,
     color: 'white',
     marginTop: 3,

@@ -43,12 +43,14 @@ export default class GFrecVar extends React.Component {
         ref={ref => (this.touchable = ref)}>
         <View style={styles.container}>
           <View style={{backgroundColor: '#1B4F72'}}>
-            <Text style={styles.text}>{this.props.nom}</Text>
+            <Text style={styles.text} numberOfLines={1}>
+              {this.props.nom}
+            </Text>
           </View>
           <View style={styles.meter}>
             {/**
              * El velocímetro recibe varios propiedades y muestra el value dispuesto en un gráfico de gauge
-             * 
+             *
              * Recibe las siguientes propiedades:
              *   - value (num) El valor que recibe el componente
              *   - size (num) El tamaño del velocímetro
@@ -120,15 +122,17 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
   meter: {
-    margin: 7,
     justifyContent: 'center',
+    flexGrow: 1,
+    alignItems: 'center',
+    marginTop: -30,
   },
   num: {
     fontSize: 40,

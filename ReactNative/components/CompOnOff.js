@@ -67,12 +67,18 @@ export default class CompOnOff extends React.Component {
       <TouchableWithoutFeedback
         onPress={this.togglePopover}
         ref={ref => (this.touchable = ref)}>
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: this.colorComp()}]}>
           <View style={{backgroundColor: '#1B4F72'}}>
-            <Text style={styles.textT}>{this.props.nom}</Text>
+            <Text style={styles.textT} numberOfLines={1}>
+              {this.props.nom}
+            </Text>
           </View>
           <View
-            style={{backgroundColor: this.colorComp(), alignItems: 'center'}}>
+            style={{
+              flexGrow: 1,
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+            }}>
             <Icon style={styles.icon} name={this.iconComp()} />
             <Text style={styles.text}>{this.textComp()}</Text>
           </View>
@@ -109,20 +115,17 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 12,
+      height: 3,
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
-    elevation: 24,
+    elevation: 8,
   },
   text: {
-    margin: 13,
     fontSize: 25,
     color: 'white',
-    marginTop: 3,
   },
   icon: {
-    margin: 13,
     fontSize: 40,
     color: 'white',
   },
